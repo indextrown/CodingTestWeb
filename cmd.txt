@@ -1,0 +1,20 @@
+python -m venv venv
+source venv/bin/activate  # macOS 및 Linux
+
+pip install flask flask-sqlalchemy flask-login werkzeug docker
+
+
+
+
+flask db migrate -m "Update Problem and Submission models"
+flask db upgrade
+
+
+
+from app import db, Problem
+problems = Problem.query.all()
+print(f"총 문제 수: {len(problems)}")
+for problem in problems:
+    print(f"ID: {problem.id}, 제목: {problem.title}")
+
+    

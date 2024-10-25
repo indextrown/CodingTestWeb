@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">랭킹</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>순위</th>
+            <th>사용자</th>
+            <th>점수</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ranking in rankings %}
+        <tr>
+            <td>{{ ranking.rank }}</td>
+            <td>{{ ranking.username }}</td>
+            <td>{{ ranking.score }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

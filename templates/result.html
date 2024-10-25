@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>실행 결과</h2>
+
+<h3>테스트 케이스 결과</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>입력</th>
+            <th>예상 출력</th>
+            <th>실제 출력</th>
+            <th>결과</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for test in test_results %}
+        <tr>
+            <td>{{ test.input }}</td>
+            <td>{{ test.expected }}</td>
+            <td>{% if test.passed %}{{ test.actual }}{% else %}<span style="color: red;">{{ test.actual }}</span>{% endif %}</td>
+            <td>{% if test.passed %}통과{% else %}실패{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('problem', problem_id=problem.id) }}" class="btn btn-primary">문제로 돌아가기</a>
+{% endblock %}

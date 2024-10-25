@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>새 문제 추가</h1>
+<form method="POST">
+    <div class="form-group">
+        <label for="title">제목:</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="form-group">
+        <label for="difficulty">난이도:</label>
+        <select class="form-control" id="difficulty" name="difficulty" required>
+            <option value="쉬움">쉬움</option>
+            <option value="보통">보통</option>
+            <option value="어려움">어려움</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="time_limit">시간 제한 (초):</label>
+        <input type="number" step="0.1" class="form-control" id="time_limit" name="time_limit" required>
+    </div>
+    <div class="form-group">
+        <label for="memory_limit">메모리 제한 (MB):</label>
+        <input type="number" class="form-control" id="memory_limit" name="memory_limit" required>
+    </div>
+    <div class="form-group">
+        <label for="description">문제 설명:</label>
+        <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="input_description">입력 설명:</label>
+        <textarea class="form-control" id="input_description" name="input_description" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="output_description">출력 설명:</label>
+        <textarea class="form-control" id="output_description" name="output_description" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="example_input">예제 입력:</label>
+        <textarea class="form-control" id="example_input" name="example_input" rows="2" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="example_output">예제 출력:</label>
+        <textarea class="form-control" id="example_output" name="example_output" rows="2" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="test_cases">테스트 케이스 (JSON 형식):</label>
+        <textarea class="form-control" id="test_cases" name="test_cases" rows="5" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="input_format">입력 형식:</label>
+        <textarea class="form-control" id="input_format" name="input_format" rows="2" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="output_format">출력 형식:</label>
+        <textarea class="form-control" id="output_format" name="output_format" rows="2" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">문제 추가</button>
+</form>
+{% endblock %}
